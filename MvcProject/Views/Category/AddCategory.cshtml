@@ -1,0 +1,33 @@
+﻿@model EntityLayer.Concrete.Category
+@{
+    ViewData["Title"] = "AddCategory";
+    Layout = "~/Views/Shared/_Deneme.cshtml";
+}
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.rtl.css" rel="stylesheet" />
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+
+@using (Html.BeginForm("AddCategory","Category",FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.Label("Kategori Adı")
+        @Html.TextBoxFor(x=>x.CategoryName)
+        @Html.ValidationMessageFor(x=>x.CategoryName)
+        <br/>
+        @Html.Label("Kategori Açıklaması")
+        @Html.TextBoxFor(x=>x.CategoryDescription)
+        @Html.ValidationMessageFor(x=>x.CategoryDescription)
+
+        <br/>
+        <button>kaydet</button>
+    </div>
+}
+
+@*<form class="form-group" method="post">
+    <input name="CategoryName" type="text" placeholder="Kategori Adı" class="form-control" />
+    <input name="CategoryDescription" type="text" placeholder="Kategori Açıklama" class="form-control" />
+    <br />
+    <button class="btn btn-primary">Ekle</button>
+</form>
+*@
