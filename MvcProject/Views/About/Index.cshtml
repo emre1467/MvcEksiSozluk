@@ -1,0 +1,37 @@
+﻿@using EntityLayer.Concrete
+@model List<About>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<h1>Hakkımda Veri Listesi</h1>
+
+<table class="table table-bordered">
+    <tr>
+        <td>Id</td>
+        <td>Hakkımda Başlığı</td>
+        <td>Aktif Yap</td>
+        <td>Pasif Yap</td>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>@item.AboutId</td>
+            <td>Başlık</td>
+            <td><a href="#" class="btn btn-warning">Aktif Yap</a></td>
+            <td><a href="#" class="btn btn-danger">Pasif Yap</a></td>
+        </tr>
+    }
+
+</table>
+
+
+
+
+
+
+<br/>
+@Html.Partial("AboutPartial","About")

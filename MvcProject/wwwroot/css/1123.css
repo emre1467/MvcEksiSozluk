@@ -1,0 +1,5 @@
+.form-control {
+    color: red; /* Uyarý mesajlarýnýn rengini buradan ayarlayabilirsiniz */
+    font-size: 12px; /* Ýstediðiniz font boyutunu buradan ayarlayabilirsiniz */
+    /* Diðer stil ayarlarý */
+}

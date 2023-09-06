@@ -1,0 +1,36 @@
+﻿@using EntityLayer.Concrete
+@model List<Writer>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div><h1>Yazarlar</h1></div>
+<div class="row">
+    
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h6 class="card-text"> @item.WriterTitle</h6>
+
+                    <h3 class="card-title">@item.WriterName @item.WriterSurName</h3>
+                    <h6 class="card-text"> @item.WriterId</h6>
+                    <h5 class="card-text"> @item.WriterMail</h5>
+                    <h5 class="card-text">Hakkında @item.WriterAbout</h5>
+                </div>
+                
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-sm bg-teal">
+                            <i class="fas fa-comments">Yazarın Başlıkları</i>
+                        </a>
+                        <a href="/Writer/EditWriter/@item.WriterId" class="btn btn-sm btn-primary">
+                        <i class="fas fa-user"></i>Profili Düzenle
+
+                    </a>
+                    </div>
+            </div>
+        </div>
+    }
+</div>
+<a href="/Writer/AddWriter" class="btn btn-info">Yeni Yazar</a>

@@ -5,7 +5,7 @@ namespace MvcProject.Controllers
     public class TestController : Controller
     {
         public IActionResult Index()
-        {//sgdssgfdfbadvfdb
+        {//sgdssgfdfbadvfdbrhtj
             return View();
         }
         public IActionResult Index2()
