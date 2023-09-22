@@ -1,0 +1,102 @@
+﻿@using EntityLayer.Concrete
+
+@using BusinessLayer.Concrete
+@using DataAccessLayer.EntityFramework
+@model List<Heading>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Admin Panel</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.15.4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqvmap/1.5.1/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/admin-lte/3.2.0/css/adminlte.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.0/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.1.0/daterangepicker.min.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.11.0/summernote-bs4.min.css">
+    <!-- Kendi stil dosyanızı ekleyebilirsiniz -->
+    <link rel="stylesheet" href="~/YourCustomStyles.css">
+</head>
+<body class="sidebar-mini layout-fixed">
+    <div class="wrapper">
+        <!-- Sol Menü -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <a href="#" class="brand-link">
+                <span class="brand-text font-weight-light">Başlıklar</span>
+            </a> <a href="/Login/WriterLogin" class="brand-link">
+                <span class="brand-text font-weight-light">Giriş Yap</span>
+            </a>
+
+            <div class="sidebar">
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu">
+                        @foreach (var item in Model)
+                        {
+                            <li class="nav-item">
+                                <a href="@Url.Action("Headings", "Default", new { id = item.HeadingId })" class="nav-link" >
+                                    <p>@item.HeadingName</p>
+                                </a>
+                            </li>
+                        }
+
+                        <!-- Diğer menü bağlantıları burada yer alabilir -->
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+
+        <!-- Sayfa İçeriği -->
+
+
+                <div class="content-wrapper">
+            @{
+
+                ContentManager contentManager = new ContentManager(new EFContentDal());
+                int id = ViewBag.Id;
+                var list = contentManager.getListByHeadingID(id);
+
+                        Html.RenderPartial("~/Views/Default/ContentList.cshtml", list);
+                    }
+                </div>
+
+
+        <!-- Gerekli JS bağlantıları buraya gelebilir -->
+        @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.0/js/jquery.overlayScrollbars.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/daterangepicker/3.1.0/daterangepicker.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.11.0/summernote-bs4.min.js"></script>
+        <!-- Kendi script dosyanızı ekleyebilirsiniz -->
+        <script src="~/YourCustomScripts.js"></script>
+        <script src="~/admin/plugins/summernote/summernote-bs4.min.js"></script>
+        <script>
+            $(function () {
+                //Add text editor
+                $('#compose-textarea').summernote()
+            })</script>
+    </div>
+</body>
+</html>

@@ -17,7 +17,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>MEsaj Sayfası</h1>
+                    <h1>Mesaj Sayfası</h1>
                 </div>
             
             </div>
@@ -89,7 +89,8 @@
                                                 @item.Message
                                         </td>
                                         <td class="mailbox-attachment"></td>
-                                        <td class="mailbox-date">5 mins ago</td>
+                                            @(((DateTime)item.ContactDate).ToString("dd-MMM-yyyy"))
+                                            <td class="mailbox-date"></td>
                                     </tr>
                                     }
                                 </tbody>

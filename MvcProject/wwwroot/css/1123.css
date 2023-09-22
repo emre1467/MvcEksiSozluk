@@ -3,3 +3,29 @@
     font-size: 12px; /* Ýstediðiniz font boyutunu buradan ayarlayabilirsiniz */
     /* Diðer stil ayarlarý */
 }
+/* Sayfalama baðlantýlarý için stil */
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+    .pagination a {
+        display: inline-block;
+        padding: 5px 10px;
+        margin: 0 2px;
+        border: 1px solid #ddd;
+        background-color: #f5f5f5;
+        color: #333;
+        text-decoration: none;
+        border-radius: 3px;
+    }
+
+        .pagination a:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+    .pagination .active {
+        background-color: #333;
+        color: #fff;
+    }

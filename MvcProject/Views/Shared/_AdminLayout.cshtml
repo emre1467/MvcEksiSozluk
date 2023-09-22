@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Admin Panel</title>
-
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -52,6 +52,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/Content/GetSearchContent" class="nav-link">
+
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Yazılar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/Writer/Index" class="nav-link">
 
                                 <i class="nav-icon fas fa-th"></i>
@@ -66,21 +73,36 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="/Heading/HeadingReport" class="nav-link">
+
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>Raporlar</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="/Contact/Index" class="nav-link">
 
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>İletişim</p>
                             </a>
                         </li>
+                       
                         <li class="nav-item">
-                            <a href="/AdminCategory/Index" class="nav-link">
+                            <a href="/Gallery/Index" class="nav-link">
 
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Galeri</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="/AdminCategory/Index" class="nav-link">
+                            <a href="/Default/Headings" class="nav-link">
+
+                                <i class="nav-icon fas fa-th"></i>
+                                <p>Siteye Git</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="/ErrorPage/Page404" class="nav-link">
 
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>Hata Sayfaları</p>
@@ -90,17 +112,11 @@
                             <a href="/AdminCategory/Index" class="nav-link">
 
                                 <i class="nav-icon fas fa-th"></i>
-                                <p>Siteye Git</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/AdminCategory/Index" class="nav-link">
-
-                                <i class="nav-icon fas fa-th"></i>
                                 <p>Çıkış Yap</p>
                             </a>
                         </li>
-                        
+                       
+
 
                         <!-- Diğer menü bağlantıları burada yer alabilir -->
                     </ul>
@@ -114,7 +130,7 @@
         </div>
 
         <!-- Gerekli JS bağlantıları buraya gelebilir -->
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        @*<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>*@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.5.2/js/bootstrap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/overlayscrollbars/1.13.0/js/jquery.overlayScrollbars.min.js"></script>
@@ -122,6 +138,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.11.0/summernote-bs4.min.js"></script>
         <!-- Kendi script dosyanızı ekleyebilirsiniz -->
         <script src="~/YourCustomScripts.js"></script>
+        <script src="~/admin/plugins/summernote/summernote-bs4.min.js"></script>
+        <script>
+            $(function () {
+                //Add text editor
+                $('#compose-textarea').summernote()
+            })</script>
     </div>
 </body>
 </html>

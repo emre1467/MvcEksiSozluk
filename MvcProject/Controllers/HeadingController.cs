@@ -1,6 +1,7 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
@@ -11,7 +12,14 @@ namespace MvcProject.Controllers
         HeadingManager headingManager = new HeadingManager(new EFHeadingDal());
         CategoryManager categoryManager= new CategoryManager(new EFCategoryDal());
         WriterManager writerManager= new WriterManager(new EFWriterDal());
+
+        [Authorize]
         public IActionResult Index()
+        {
+            var headingValues = headingManager.GetAll();
+            return View(headingValues);
+        }
+        public IActionResult HeadingReport()
         {
             var headingValues = headingManager.GetAll();
             return View(headingValues);

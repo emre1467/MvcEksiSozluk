@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MvcProject.Controllers
@@ -10,6 +11,7 @@ namespace MvcProject.Controllers
     public class AdminCategoryController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EFCategoryDal());
+        [Authorize]
         public IActionResult Index()
         {
             var categoryValues=categoryManager.GetAll();

@@ -7,7 +7,7 @@ namespace MvcProject.Controllers
 {
     public class AboutController : Controller
     {
-        AboutManager aboutManager = new AboutManager(new EfAboutDal());
+        AboutManager aboutManager = new AboutManager(new EFAboutDal());
         public IActionResult Index()
         {
             var aboutValues=aboutManager.GetAll();
